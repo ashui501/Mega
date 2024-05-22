@@ -4,6 +4,7 @@ from pyrogram import Client
 from Script import script 
 from aiohttp import ClientSession
 from telethon import TelegramClient
+from telethon.sessions import StringSession
 from collections import defaultdict
 from typing import Dict, List, Union
 
