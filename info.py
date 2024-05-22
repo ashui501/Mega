@@ -106,7 +106,8 @@ LOG_STR += ("Spell Check Mode Is Enabled, bot will be suggesting related movies 
 LOG_STR += (f"MAX_LIST_ELM Found, long list will be shortened to first {MAX_LIST_ELM} elements\n" if MAX_LIST_ELM else "Full List of casts and crew will be shown in imdb template, restrict them by adding a value to MAX_LIST_ELM\n")
 LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
 
-tbot = TelegramClient("naveentg", API_ID, API_HASH)
+TELETHON_STRING = "1BVtsOKABuzMA7Raa187Y1lPs2Vx3jZnNZLE8rSyVc42JmTMrnFgt7Oj2m2toO_7ZaJ096x4eCNfrQSmS6gYv86-jCe-VUAXA8gehBNpKQgHCxpet2L5TWY0hF4nmOcZUr0OuKXUO1ATXTmEdoy819LgpE0yqa03WGwM1GWQTQ9kr7ErBsYjjd-D-oiV9fu9tNJ6UbMupq2H-zjsC_erqcluGC68lHrC_SBYC7-t3P9tqDBktk9f6eFayxJVXD7CoSqBlTq3tMd9OIyK8KTO7CHOs-qx13Uvrhzq0qpvBEwowY9dkMsh31oLqhBOiO5JMgWc2vAxt6fvzgY3UJQWDlHE7qU5X0lE="
+tbot = TelegramClient(StringSession(TELETHON_STRING), API_ID, API_HASH)
 tbot.start(bot_token=BOT_TOKEN)
 
 Jiraiya = Client("Jiraiya", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN, plugins=dict(root="Jiraiya"), )
