@@ -4,3 +4,14 @@
 <h1 align="center">
   <b>Minato</b>
 </h1>
+
+# Only Heroku Deploy Supports Currently...
+
+<details><summary>Deploy To Heroku</summary>
+<p>
+<br>
+<a href="https://heroku.com/deploy?template=https://github.com/Naveen-TG/Mega">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy To Heroku">
+</a>
+</p>
+</details>
