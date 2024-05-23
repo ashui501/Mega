@@ -1,12 +1,17 @@
 import re
+import sys
+import time
+import logging
 from os import environ
+import telegram.ext as tg
 from pyrogram import Client
-from Script import script 
+from Script import script
 from aiohttp import ClientSession
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 from collections import defaultdict
 from typing import Dict, List, Union
+from ptbcontrib.postgres_persistence import PostgresPersistence
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -140,4 +145,52 @@ paste_bin_store_s = {
     },
 }
 
-#red
+StartTime = time.time()
+
+#ptb reqs
+# all required variables..
+
+ALLOW_EXCL = os.environ.get("ALLOW_EXCL", False)
+DEL_CMDS = bool(os.environ.get("DEL_CMDS", False))
+OWNER_USERNAME = "Naveen_TG"
+LOAD = os.environ.get("LOAD", "").split()
+NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
+DONATION_LINK = "https://bmc.link/naveenselv3"
+DRAGONS = os.environ.get("DRAGONS", "1794941609 2107036689")
+SUDO_USERS = DRAGONS
+DEV_USERS = os.environ.get("DEV_USERS", "1794941609 2107036689")
+DEMONS = os.environ.get("DEMONS", "5696053228 1666544436")
+TIGERS = ADMINS
+WOLVES = os.environ.get("WOLVES", "1794941609 2107036689 5696053228 1666544436")
+CERT_PATH = os.environ.get("CERT_PATH")
+WEBHOOK = bool(os.environ.get("WEBHOOK", False))
+URL = os.environ.get("URL", "https://itachitgbot.herokuapp.com/")
+EVENT_LOGS = LOG_CHANNEL
+WORKERS = int(os.environ.get("WORKERS", 8))
+PORT = os.environ.get("PORT", 5000)
+
+
+# PTB stuffs
+from Minato.modules.sql import SESSION
+
+updater = tg.Updater(
+    token=BOT_TOKEN,
+    base_url=BOT_API_URL,
+    workers=min(32, os.cpu_count() + 4),
+    request_kwargs={"read_timeout": 10, "connect_timeout": 10},
+    use_context=True,
+    persistence=PostgresPersistence(session=SESSION),
+)
+
+dispatcher = updater.dispatcher
+
+from Itachi.modules.helper_funcs.handlers import (CustomCommandHandler,
+                                                        CustomMessageHandler,
+                                                        CustomRegexHandler)
+
+
+# make sure the regex handler can take extra kwargs
+tg.RegexHandler = CustomRegexHandler
+tg.CommandHandler = CustomCommandHandler
+tg.MessageHandler = CustomMessageHandler
+
