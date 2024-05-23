@@ -148,24 +148,24 @@ StartTime = time.time()
 #ptb reqs
 # all required variables..
 
-ALLOW_EXCL = os.environ.get("ALLOW_EXCL", False)
-DEL_CMDS = bool(os.environ.get("DEL_CMDS", False))
+ALLOW_EXCL = environ.get("ALLOW_EXCL", False)
+DEL_CMDS = bool(environ.get("DEL_CMDS", False))
 OWNER_USERNAME = "Naveen_TG"
-LOAD = os.environ.get("LOAD", "").split()
-NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
+LOAD = environ.get("LOAD", "").split()
+NO_LOAD = environ.get("NO_LOAD", "translation").split()
 DONATION_LINK = "https://bmc.link/naveenselv3"
-DRAGONS = os.environ.get("DRAGONS", "1794941609 2107036689")
+DRAGONS = environ.get("DRAGONS", "1794941609 2107036689")
 SUDO_USERS = DRAGONS
-DEV_USERS = os.environ.get("DEV_USERS", "1794941609 2107036689")
-DEMONS = os.environ.get("DEMONS", "5696053228 1666544436")
+DEV_USERS = environ.get("DEV_USERS", "1794941609 2107036689")
+DEMONS = environ.get("DEMONS", "5696053228 1666544436")
 TIGERS = ADMINS
-WOLVES = os.environ.get("WOLVES", "1794941609 2107036689 5696053228 1666544436")
-CERT_PATH = os.environ.get("CERT_PATH")
-WEBHOOK = bool(os.environ.get("WEBHOOK", False))
-URL = os.environ.get("URL", "https://itachitgbot.herokuapp.com/")
+WOLVES = environ.get("WOLVES", "1794941609 2107036689 5696053228 1666544436")
+CERT_PATH = environ.get("CERT_PATH")
+WEBHOOK = bool(environ.get("WEBHOOK", False))
+URL = environ.get("URL", "https://itachitgbot.herokuapp.com/")
 EVENT_LOGS = LOG_CHANNEL
-WORKERS = int(os.environ.get("WORKERS", 8))
-PORT = os.environ.get("PORT", 5000)
+WORKERS = int(environ.get("WORKERS", 8))
+PORT = environ.get("PORT", 5000)
 
 
 # PTB stuffs
