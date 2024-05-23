@@ -11,7 +11,6 @@ from telethon import TelegramClient
 from telethon.sessions import StringSession
 from collections import defaultdict
 from typing import Dict, List, Union
-from ptbcontrib.postgres_persistence import PostgresPersistence
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
