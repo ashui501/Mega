@@ -27,11 +27,11 @@ from info import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from VegetaRobot.modules import ALL_MODULES
-from VegetaRobot.modules.helper_funcs.chat_status import is_user_admin
-from VegetaRobot.modules.helper_funcs.misc import paginate_modules
-from VegetaRobot.modules.misc import markdown_help_sender
-from VegetaRobot.modules.disable import DisableAbleCommandHandler
+from Minato.modules import ALL_MODULES
+from Minato.modules.helper_funcs.chat_status import is_user_admin
+from Minato.modules.helper_funcs.misc import paginate_modules
+from Minato.modules.misc import markdown_help_sender
+from Minato.modules.disable import DisableAbleCommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.utils.helpers import mention_html
 from telegram.error import (
