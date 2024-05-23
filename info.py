@@ -173,15 +173,7 @@ PORT = os.environ.get("PORT", 5000)
 # PTB stuffs
 from Minato.modules.sql import SESSION
 
-updater = tg.Updater(
-    token=BOT_TOKEN,
-    base_url=BOT_API_URL,
-    workers=min(32, os.cpu_count() + 4),
-    request_kwargs={"read_timeout": 10, "connect_timeout": 10},
-    use_context=True,
-    persistence=PostgresPersistence(session=SESSION),
-)
-
+updater = tg.Updater(BOT_TOKEN, workers=WORKERS, use_context=True)
 dispatcher = updater.dispatcher
 
 from Itachi.modules.helper_funcs.handlers import (CustomCommandHandler,
