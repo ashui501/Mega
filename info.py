@@ -169,18 +169,7 @@ PORT = os.environ.get("PORT", 5000)
 
 
 # PTB stuffs
-from Minato.modules.sql import SESSION
 
 updater = tg.Updater(BOT_TOKEN, workers=WORKERS, use_context=True)
 dispatcher = updater.dispatcher
-
-from Itachi.modules.helper_funcs.handlers import (CustomCommandHandler,
-                                                        CustomMessageHandler,
-                                                        CustomRegexHandler)
-
-
-# make sure the regex handler can take extra kwargs
-tg.RegexHandler = CustomRegexHandler
-tg.CommandHandler = CustomCommandHandler
-tg.MessageHandler = CustomMessageHandler
 
