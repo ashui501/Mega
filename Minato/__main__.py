@@ -8,7 +8,7 @@ from sys import argv
 from typing import Optional
 from pyrogram import filters
 
-from VegetaRobot import (
+from info import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
@@ -16,13 +16,13 @@ from VegetaRobot import (
     LOGGER,
     OWNER_ID,
     PORT,
-    TOKEN,
+    BOT_TOKEN as TOKEN,
     URL,
     WEBHOOK,
     SUPPORT_CHAT,UPDATES_CHANNEL,
     dispatcher,
+    tbot as telethn
     StartTime,
-    telethn, pgram,
     updater)
 
 # needed to dynamically load modules
@@ -141,7 +141,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("VegetaRobot.modules." + module_name)
+    imported_module = importlib.import_module("Minato.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -728,5 +728,5 @@ def main():
 
 if __name__ == '__main__':
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    telethn.start(bot_token=TOKEN)
+    telethn.start(bot_token=BOT_TOKEN)
     main()
