@@ -1,0 +1,33 @@
+import logging
+import os
+import sys
+import time
+import spamwatch
+import pyrogram 
+from aiohttp import ClientSession
+from info import OWNER_ID, BOT_TOKEN, SUPPORT_CHAT, LOG_CHANNEL, PORT
+from info import ADMINS
+import telegram.ext as tg
+from pyrogram import Client, errors, __version__ as pyrover
+from telethon.sync import TelegramClient
+from telethon.sessions import MemorySession
+from ptbcontrib.postgres_persistence import PostgresPersistence
+
+pyrogram_version = pyrover
+
+StartTime = time.time()
+
+DONATION_LINK = ""
+# all required variables..
+
+OWNER_USERNAME = "Naveen_TG"
+OWNER_ID = OWNER_ID
+DRAGONS 
+DEV_USERS = ADMINS
+DEMONS
+TIGERS = 
+WOLVES = ADMINS
+PORT = PORT
+SUPPORT_CHAT = SUPPORT_CHAT
+EVENT_LOGS = LOG_CHANNEL
+WORKERS = 8
