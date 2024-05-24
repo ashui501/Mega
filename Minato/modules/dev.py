@@ -88,6 +88,14 @@ def sendlogs(_, m: Message):
     ]
     m.reply(x, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(keyb))
 
+async def aexec(code, client, message):
+    exec(
+        "async def __aexec(client, message): "
+        + "".join(f"\n {l_}" for l_ in code.split("\n"))
+    )
+    return await locals()["__aexec"](client, message)
+
+
 @Client.on_message(filters.command(["run","eval", "e"]))
 async def eval(client, message):
     if not message.from_user.id in DEVS:
