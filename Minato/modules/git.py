@@ -4,6 +4,7 @@ import os
 from asyncio import sleep
 from glob import iglob
 from random import randint
+from git import Repo as Repository
 
 import aiofiles
 # from git.repository import Repository
@@ -15,7 +16,6 @@ from svglib.svglib import svg2rlg
 from info import Jiraiya as UserBot
 from Minato.funcs.pyrohelp import ReplyCheck, AioHttp
 
-Repository = "https://github.com/Naveen-TG/Mega"
 
 @UserBot.on_message(filters.command(["lastcommit", "lc"]))
 async def last_commit(bot: UserBot, message: Message):
