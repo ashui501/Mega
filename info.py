@@ -21,6 +21,19 @@ def is_enabled(value, default):
     else:
         return default
 
+# enable logging
+FORMAT = "[MINATOxTGBOT] %(message)s"
+logging.basicConfig(
+    handlers=[logging.FileHandler("log.txt"),
+              logging.StreamHandler()],
+    level=logging.INFO,
+    format=FORMAT,
+    datefmt="[%X]",
+)
+logging.getLogger("pyrogram").setLevel(logging.INFO)
+
+LOGGER = logging.getLogger(__name__)
+
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ['API_ID'])
