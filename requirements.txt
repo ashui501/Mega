@@ -18,10 +18,12 @@ pymongo[srv]==3.12.3
 pyrogram>=2.0.30
 python-telegram-bot==13.15
 pytz
+reportlab==3.6.12
 requests
 SafoneAPI
 search_engine_parser
 sqlalchemy
+svglib==1.4.1
 telegraph
 telethon
 telethon-session-sqlalchemy
