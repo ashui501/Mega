@@ -17,7 +17,7 @@ from pyrogram.types import (
 from info import DEV_USERS, ADMINS, OWNER_ID
 
 dev_users = DEV_USERS
-
+DEVS = ADMINS
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
