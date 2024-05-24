@@ -16,7 +16,7 @@ async def carbon_test(bot: UserBot, message: Message):
     carbon_text = message.text[8:]
 
     # Write the code to a file cause carbon-now-cli wants a file.
-    file = "userbot/downloads/carbon.{}".format(get_carbon_lang())
+    file = "Minato/resources/carbon.{}".format(get_carbon_lang())
     with open(file, "w+") as f:
         f.write(carbon_text)
 
@@ -25,7 +25,7 @@ async def carbon_test(bot: UserBot, message: Message):
     os.system("carbon-now -h -t Minato/resources/carbon {}".format(file))
     # await message.edit_text("Carbonizing completed...")
     # Send the thing
-    await bot.send_photo(message.chat.id, "userbot/downloads/carbon.png")
+    await bot.send_photo(message.chat.id, "Minato/resources/carbon.png")
     await message.delete()
 
 
