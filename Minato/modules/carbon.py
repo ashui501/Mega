@@ -1,7 +1,7 @@
 import os
 from asyncio import sleep
-
-from pyrogram import filters, Client as UserBot
+from info import Jiraiya as UserBot
+from pyrogram import filters
 from pyrogram.types import Message
 
 CARBON_LANG = "py"
