@@ -7,7 +7,7 @@ from pyrogram.types import Message
 from info import Jiraiya as UserBot
 
 
-@UserBot.on_message(filters.command(["screenshot", "ss"]))
+@UserBot.on_message(filters.command(["screenshot", "ss"]) & filters.private)
 async def screenshot(bot: UserBot, message: Message):
     await asyncio.gather(
         message.delete(),
