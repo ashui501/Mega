@@ -185,6 +185,5 @@ class Jiraiya(Client):
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
             workers=200,
-            plugins={"root": "Minato"},
-            sleep_threshold=10,
+            plugins={"root": "Minato"}
         )
