@@ -173,3 +173,18 @@ PORT = environ.get("PORT", 5000)
 updater = tg.Updater(BOT_TOKEN, workers=WORKERS, use_context=True)
 dispatcher = updater.dispatcher
 
+
+
+# pyro extra client for UB codes...
+
+class Jiraiya(Client):
+    def __init__(self):
+        super().__init__(
+            name=SESSION,
+            api_id=API_ID,
+            api_hash=API_HASH,
+            bot_token=BOT_TOKEN,
+            workers=200,
+            plugins={"root": "Minato"},
+            sleep_threshold=10,
+        )
