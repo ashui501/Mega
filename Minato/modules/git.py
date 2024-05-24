@@ -16,7 +16,7 @@ from info import Jiraiya as UserBot
 from Minato.funcs.pyrohelp import ReplyCheck, AioHttp
 
 
-@UserBot.on_message(filters.command(["lastcommit", "lc"], ".") & filters.me)
+@UserBot.on_message(filters.command(["lastcommit", "lc"]))
 async def last_commit(bot: UserBot, message: Message):
     repo = Repository(os.getcwd())
     master = repo.head.reference
@@ -32,7 +32,7 @@ async def last_commit(bot: UserBot, message: Message):
     await message.edit(commit_msg, disable_web_page_preview=True)
 
 
-@UserBot.on_message(filters.command(["ggraph", "commitgraph"])
+@UserBot.on_message(filters.command(["ggraph", "commitgraph"]))
 async def commit_graph(bot: UserBot, message: Message):
     if len(message.command) < 2:
         await message.edit(
