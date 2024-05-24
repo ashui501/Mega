@@ -55,7 +55,7 @@ async def update_carbon_lang(bot: UserBot, message: Message):
     await message.delete()
 
 
-@UserBot.on_message(filters.command("carbonlang") & filters.me)
+@UserBot.on_message(filters.command("carbonlangs") & filters.me)
 async def send_carbon_lang(bot: UserBot, message: Message):
     """
     Edits message to show current set carbon language
