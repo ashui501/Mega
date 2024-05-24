@@ -7,7 +7,7 @@ from pyrogram.types import Message
 CARBON_LANG = "py"
 
 
-@UserBot.on_message(filters.command("carbon", ".") & filters.me)
+@UserBot.on_message(filters.command("carbon") & filters.me)
 async def carbon_test(bot: UserBot, message: Message):
     """
     Receives text and makes a carbon image using the text
@@ -29,7 +29,7 @@ async def carbon_test(bot: UserBot, message: Message):
     await message.delete()
 
 
-@UserBot.on_message(filters.command("carbonlang", ".") & filters.me)
+@UserBot.on_message(filters.command("carbonlang") & filters.me)
 async def update_carbon_lang(bot: UserBot, message: Message):
     """
     Set language to use Carbon with.
@@ -55,7 +55,7 @@ async def update_carbon_lang(bot: UserBot, message: Message):
     await message.delete()
 
 
-@UserBot.on_message(filters.command("carbonlang", "!") & filters.me)
+@UserBot.on_message(filters.command("carbonlang") & filters.me)
 async def send_carbon_lang(bot: UserBot, message: Message):
     """
     Edits message to show current set carbon language
@@ -72,22 +72,3 @@ def get_carbon_lang():
     return CARBON_LANG
 
 
-add_command_help(
-    "carbon",
-    [
-        [
-            ".carbon",
-            "Generates a carbon image of your code.\nUsage: `.carbon` reply to message or command args",
-        ],
-        [
-            ".carbonlang",
-            "Change carbon language for syntax highlighting.\nUsage: `.carbonlang` reply to message or "
-            "command args\n"
-            "Please use file extensions for best results.",
-        ],
-        [
-            "!carbonlang",
-            "Show current carbon language. Default is python.\nUsage: `!carbonlang`",
-        ],
-    ],
-)
