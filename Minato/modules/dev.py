@@ -16,6 +16,8 @@ from pyrogram.types import (
 
 from info import DEV_USERS, ADMINS, OWNER_ID
 
+dev_users = DEV_USERS
+
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -85,11 +87,15 @@ def sendlogs(_, m: Message):
     ]
     m.reply(x, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(keyb))
 
-@Client.on_message(filters.user(ADMINS) & filters.command("eval"))
+@Client.on_message(filters.command(["run","eval", "e"]))
 async def eval(client, message):
+    if not message.from_user.id in DEVS:
+         return await message.reply_text("You Don't Have Enough Rights To Run This!")
+    if len(message.text.split()) <2:
+          return await message.reply_text("Input Not Found!")
     status_message = await message.reply_text("Processing ...")
-    cmd = message.text.split(" ", maxsplit=1)[1]
-
+    cmd = message.text.split(None, 1)[1]
+    start = datetime.now()
     reply_to_ = message
     if message.reply_to_message:
         reply_to_ = message.reply_to_message
@@ -119,12 +125,13 @@ async def eval(client, message):
         evaluation = stdout
     else:
         evaluation = "Success"
-
-    final_output = "<b>EVAL</b>: "
-    final_output += f"<code>{cmd}</code>\n\n"
-    final_output += "<b>OUTPUT</b>:\n"
-    final_output += f"<code>{evaluation.strip()}</code> \n"
-
+    end = datetime.now()
+    ping = (end-start).microseconds / 1000
+    final_output = "📎 Input: "
+    final_output += f"{cmd}\n\n"
+    final_output += "📒 Output:\n"
+    final_output += f"{evaluation.strip()} \n\n"
+    final_output += f"✨ Taken Time: {ping}ms"
     if len(final_output) > 4096:
         with io.BytesIO(str.encode(final_output)) as out_file:
             out_file.name = "eval.text"
@@ -132,16 +139,8 @@ async def eval(client, message):
                 document=out_file, caption=cmd, disable_notification=True
             )
     else:
-        await reply_to_.reply_text(final_output)
-    await status_message.delete()
-
-async def aexec(code, client, message):
-    exec(
-        "async def __aexec(client, message): "
-        + "".join(f"\n {l_}" for l_ in code.split("\n"))
-    )
-    return await locals()["__aexec"](client, message)
-
+        await status_message.edit_text(final_output)
+        
 @Client.on_message(filters.command("ud"))
 async def ud(_, message: Message):
        ud = await message.reply_text("finding.. define.")
