@@ -7,7 +7,7 @@ from pyrogram.types import Message
 CARBON_LANG = "py"
 
 
-@UserBot.on_message(filters.command("carbon") & filters.me)
+@UserBot.on_message(filters.command("carbon"))
 async def carbon_test(bot: UserBot, message: Message):
     """
     Receives text and makes a carbon image using the text
@@ -22,14 +22,14 @@ async def carbon_test(bot: UserBot, message: Message):
 
     await message.edit_text("Carbonizing code...")
     # Do the thing
-    os.system("carbon-now -h -t userbot/downloads/carbon {}".format(file))
+    os.system("carbon-now -h -t Minato/resources/carbon {}".format(file))
     # await message.edit_text("Carbonizing completed...")
     # Send the thing
     await bot.send_photo(message.chat.id, "userbot/downloads/carbon.png")
     await message.delete()
 
 
-@UserBot.on_message(filters.command("carbonlang") & filters.me)
+@UserBot.on_message(filters.command("carbonlang"))
 async def update_carbon_lang(bot: UserBot, message: Message):
     """
     Set language to use Carbon with.
@@ -55,7 +55,7 @@ async def update_carbon_lang(bot: UserBot, message: Message):
     await message.delete()
 
 
-@UserBot.on_message(filters.command("carbonlangs") & filters.me)
+@UserBot.on_message(filters.command("carbonlangs"))
 async def send_carbon_lang(bot: UserBot, message: Message):
     """
     Edits message to show current set carbon language
