@@ -34,7 +34,6 @@ if __name__ == '__main__':
     from info import updater
     from Minato import modules  # Assuming plugins is a package with __init__.py
     import_plugins(modules)
-    telethn.start(bot_token=BOT_TOKEN)
     app.run()
     updater.start_polling()
     updater.idle()
