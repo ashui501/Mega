@@ -14,7 +14,7 @@ def import_plugins(package):
     package_name = package.__name__
     package_file = package.__file__
 
-    logging.debug(f"Importing plugins from package: {package_name}")
+    logging.debug(f"Importing modules from package: {package_name}")
     logging.debug(f"Package file attribute: {package_file}")
 
     if package_file is None:
@@ -34,6 +34,6 @@ if __name__ == '__main__':
     from info import updater
     from Minato import modules  # Assuming plugins is a package with __init__.py
     import_plugins(modules)
-    app.run()
     updater.start_polling()
     updater.idle()
+    app.run()
