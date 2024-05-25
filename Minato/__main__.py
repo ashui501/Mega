@@ -29,7 +29,8 @@ def import_plugins(package):
 
 
 if __name__ == '__main__':
-    from info import dispatcher as app
+    from info import updater
     from Minato import modules  # Assuming plugins is a package with __init__.py
     import_plugins(modules)
-    app.run_polling()
+    updater.start_polling()
+    updater.idle()
