@@ -5,6 +5,7 @@ import importlib
 import pkgutil
 import logging
 
+from bot import app as bot 
 # Initialize logging
 logging.basicConfig(level=logging.DEBUG)
 
@@ -32,5 +33,6 @@ if __name__ == '__main__':
     from info import updater
     from Minato import modules  # Assuming plugins is a package with __init__.py
     import_plugins(modules)
+    app.run()
     updater.start_polling()
     updater.idle()
