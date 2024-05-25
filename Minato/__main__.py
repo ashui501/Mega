@@ -37,4 +37,4 @@ if __name__ == '__main__':
     telethn.start(bot_token=BOT_TOKEN)
     app.run()
     updater.start_polling()
-    updater.idle()
+    
