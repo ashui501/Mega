@@ -8,4 +8,4 @@
  WORKDIR /app 
   
  COPY . . 
- CMD [ "python3", "-m" , "Minato")
+ CMD [ "python3", "-m" , "Minato" ]
